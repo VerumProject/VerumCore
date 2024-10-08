@@ -35,13 +35,13 @@ namespace CryptoNote
     const uint64_t BLOCK_REWARD                                            = UINT64_C(3'00000000);            /* Miner Reward: 3.00000000 VRM */
     const uint64_t GENESIS_BLOCK_REWARD                                    = UINT64_C(100'000'00000000);      /* Premine Reward: 100'000.00000000 VRM (0.99%) */
 
-    const uint32_t STAKING_ENABLE_HEIGHT                                   = 86400;                           /* Enable staking height */
+    const uint32_t VERMINTING_ENABLE_HEIGHT                                = 86400;                           /* Enable Verminting height */
     const uint64_t BLOCK_REWARD_ENABLE                                     = UINT64_C(3'00000000);            /* Miner Reward:   3.00000000 VRM (66%) */
-    const uint64_t STAKING_BLOCK_REWARD_ENABLE                             = UINT64_C(2'00000000);            /* Staking Reward: 2.00000000 VRM (33%) */
+    const uint64_t VERMINTING_BLOCK_REWARD_ENABLE                          = UINT64_C(2'00000000);            /* Verminting Reward: 2.00000000 VRM (33%) */
 
-    const uint32_t STAKING_HALVING_HEIGHT                                  = 1051200;                         /* Staking Halving Height */
+    const uint32_t VERMINTING_HALVING_HEIGHT                               = 1051200;                         /* Verminting Halving Height */
     const uint64_t BLOCK_REWARD_HALVING                                    = UINT64_C(1'00000000);            /* Miner Reward:   1.00000000 VRM (33%) */
-    const uint64_t STAKING_BLOCK_REWARD_HALVING                            = UINT64_C(1'50000000);            /* Staking Reward: 1.50000000 VRM (66%) */
+    const uint64_t VERMINTING_BLOCK_REWARD_HALVING                         = UINT64_C(1'50000000);            /* Verminting Reward: 1.50000000 VRM (66%) */
 
     const uint32_t ZAWY_DIFFICULTY_BLOCK_INDEX                             = 0;
     const size_t   ZAWY_DIFFICULTY_V2                                      = 0;

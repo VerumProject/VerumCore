@@ -209,8 +209,8 @@ namespace CryptoNote
 
         /* Staking reward */
         /* Phase 3 */
-        if(height >= CryptoNote::parameters::STAKING_HALVING_HEIGHT) {
-            float loopings = std::floor(height / CryptoNote::parameters::STAKING_HALVING_HEIGHT) - 1;
+        if(height >= CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) {
+            float loopings = std::floor(height / CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) - 1;
             float HAVING_AMOUNT = 1;
             
             for (int i = 0; i < static_cast<int>(loopings); ++i) {
@@ -218,11 +218,11 @@ namespace CryptoNote
             }
 
             baseReward = (CryptoNote::parameters::BLOCK_REWARD_HALVING / HAVING_AMOUNT);
-            baseReward += (CryptoNote::parameters::STAKING_BLOCK_REWARD_HALVING / HAVING_AMOUNT);
+            baseReward += (CryptoNote::parameters::VERMINTING_BLOCK_REWARD_HALVING / HAVING_AMOUNT);
         /* Phase 2 */
-        } else if(height >= CryptoNote::parameters::STAKING_ENABLE_HEIGHT) {
+        } else if(height >= CryptoNote::parameters::VERMINTING_ENABLE_HEIGHT) {
             baseReward = CryptoNote::parameters::BLOCK_REWARD_ENABLE;
-            baseReward += CryptoNote::parameters::STAKING_BLOCK_REWARD_ENABLE;
+            baseReward += CryptoNote::parameters::VERMINTING_BLOCK_REWARD_ENABLE;
         }
 
         size_t blockGrantedFullRewardZone = blockGrantedFullRewardZoneByBlockVersion(blockMajorVersion);
@@ -304,18 +304,18 @@ namespace CryptoNote
 
         /* Reduce staking reward from block reward */
         /* Phase 3 */
-        if(height >= CryptoNote::parameters::STAKING_HALVING_HEIGHT) {
-            float loopings = std::floor(height / CryptoNote::parameters::STAKING_HALVING_HEIGHT) - 1;
+        if(height >= CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) {
+            float loopings = std::floor(height / CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) - 1;
             float HAVING_AMOUNT = 1;
             
             for (int i = 0; i < static_cast<int>(loopings); ++i) {
                 HAVING_AMOUNT = HAVING_AMOUNT * 2;
             }
 
-            blockReward -= (CryptoNote::parameters::STAKING_BLOCK_REWARD_HALVING / HAVING_AMOUNT);
+            blockReward -= (CryptoNote::parameters::VERMINTING_BLOCK_REWARD_HALVING / HAVING_AMOUNT);
         /* Phase 2 */
-        } else if(height >= CryptoNote::parameters::STAKING_ENABLE_HEIGHT) {
-            blockReward -= CryptoNote::parameters::STAKING_BLOCK_REWARD_ENABLE;
+        } else if(height >= CryptoNote::parameters::VERMINTING_ENABLE_HEIGHT) {
+            blockReward -= CryptoNote::parameters::VERMINTING_BLOCK_REWARD_ENABLE;
         }
 
         /* Miner outputs */
@@ -329,8 +329,8 @@ namespace CryptoNote
 
         /* Staking outputs */
         /* Phase 3 */
-        if(height >= CryptoNote::parameters::STAKING_HALVING_HEIGHT) {
-            float loopings = std::floor(height / CryptoNote::parameters::STAKING_HALVING_HEIGHT) - 1;
+        if(height >= CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) {
+            float loopings = std::floor(height / CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) - 1;
             float HAVING_AMOUNT = 1;
             
             for (int i = 0; i < static_cast<int>(loopings); ++i) {
@@ -338,14 +338,14 @@ namespace CryptoNote
             }
 
             decompose_amount_into_digits(
-                (CryptoNote::parameters::STAKING_BLOCK_REWARD_HALVING / HAVING_AMOUNT),
+                (CryptoNote::parameters::VERMINTING_BLOCK_REWARD_HALVING / HAVING_AMOUNT),
                 defaultDustThreshold(height),
                 [&outAmounts](uint64_t a_chunk) { outAmounts.push_back(a_chunk); },
                 [&outAmounts](uint64_t a_dust) { outAmounts.push_back(a_dust); });
         /* Phase 2 */
-        } else if(height >= CryptoNote::parameters::STAKING_ENABLE_HEIGHT) {
+        } else if(height >= CryptoNote::parameters::VERMINTING_ENABLE_HEIGHT) {
             decompose_amount_into_digits(
-                CryptoNote::parameters::STAKING_BLOCK_REWARD_ENABLE,
+                CryptoNote::parameters::VERMINTING_BLOCK_REWARD_ENABLE,
                 defaultDustThreshold(height),
                 [&outAmounts](uint64_t a_chunk) { outAmounts.push_back(a_chunk); },
                 [&outAmounts](uint64_t a_dust) { outAmounts.push_back(a_dust); });
@@ -432,18 +432,18 @@ namespace CryptoNote
 
         /* Re-add staking reward to block reward */
         /* Phase 3 */
-        if(height >= CryptoNote::parameters::STAKING_HALVING_HEIGHT) {
-            float loopings = std::floor(height / CryptoNote::parameters::STAKING_HALVING_HEIGHT) - 1;
+        if(height >= CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) {
+            float loopings = std::floor(height / CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) - 1;
             float HAVING_AMOUNT = 1;
             
             for (int i = 0; i < static_cast<int>(loopings); ++i) {
                 HAVING_AMOUNT = HAVING_AMOUNT * 2;
             }
 
-            blockReward += (CryptoNote::parameters::STAKING_BLOCK_REWARD_HALVING / HAVING_AMOUNT);
+            blockReward += (CryptoNote::parameters::VERMINTING_BLOCK_REWARD_HALVING / HAVING_AMOUNT);
         /* Phase 2 */
-        } else if(height >= CryptoNote::parameters::STAKING_ENABLE_HEIGHT) {
-            blockReward += CryptoNote::parameters::STAKING_BLOCK_REWARD_ENABLE;
+        } else if(height >= CryptoNote::parameters::VERMINTING_ENABLE_HEIGHT) {
+            blockReward += CryptoNote::parameters::VERMINTING_BLOCK_REWARD_ENABLE;
         }
 
         if (!(summaryAmounts == blockReward))

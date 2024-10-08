@@ -1860,33 +1860,33 @@ std::tuple<Error, uint16_t> RpcServer::getBlockDetailsByHash(
             
             /*
             // Halvings
-            if(height >= (CryptoNote::parameters::STAKING_HALVING_HEIGHT)) {
-                float loopings = std::floor(height / CryptoNote::parameters::STAKING_HALVING_HEIGHT) - 1; // 1
+            if(height >= (CryptoNote::parameters::VERMINTING_HALVING_HEIGHT)) {
+                float loopings = std::floor(height / CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) - 1; // 1
                 float HALVING_AMOUNT = 1;
                 uint64_t TOTAL_HAVLING_AMOUNT = UINT64_C(0);
                 
                 for (int i = 0; i < static_cast<int>(loopings); ++i) {
                     std::cout << "A: " + TOTAL_HAVLING_AMOUNT;
-                    TOTAL_HAVLING_AMOUNT += ((CryptoNote::parameters::STAKING_HALVING_HEIGHT) * ((CryptoNote::parameters::BLOCK_REWARD_HALVING / HALVING_AMOUNT) + (CryptoNote::parameters::STAKING_BLOCK_REWARD_HALVING / HALVING_AMOUNT)));
+                    TOTAL_HAVLING_AMOUNT += ((CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) * ((CryptoNote::parameters::BLOCK_REWARD_HALVING / HALVING_AMOUNT) + (CryptoNote::parameters::VERMINTING_BLOCK_REWARD_HALVING / HALVING_AMOUNT)));
                     HALVING_AMOUNT = HALVING_AMOUNT * 2;
                 }
 
                 writer.String(std::to_string(
-                    ((CryptoNote::parameters::BLOCK_REWARD * CryptoNote::parameters::STAKING_ENABLE_HEIGHT) +
+                    ((CryptoNote::parameters::BLOCK_REWARD * CryptoNote::parameters::VERMINTING_ENABLE_HEIGHT) +
                     CryptoNote::parameters::GENESIS_BLOCK_REWARD) +
-                    ((CryptoNote::parameters::BLOCK_REWARD_ENABLE + CryptoNote::parameters::STAKING_BLOCK_REWARD_ENABLE + CryptoNote::parameters::STAKING_BLOCK_REWARD_ENABLE) * CryptoNote::parameters::STAKING_ENABLE_HEIGHT) +
+                    ((CryptoNote::parameters::BLOCK_REWARD_ENABLE + CryptoNote::parameters::VERMINTING_BLOCK_REWARD_ENABLE + CryptoNote::parameters::VERMINTING_BLOCK_REWARD_ENABLE) * CryptoNote::parameters::VERMINTING_ENABLE_HEIGHT) +
                     TOTAL_HAVLING_AMOUNT +
-                    ((height - CryptoNote::parameters::STAKING_HALVING_HEIGHT) * ((CryptoNote::parameters::BLOCK_REWARD_HALVING / HALVING_AMOUNT) + (CryptoNote::parameters::STAKING_BLOCK_REWARD_HALVING / HALVING_AMOUNT)))
+                    ((height - CryptoNote::parameters::VERMINTING_HALVING_HEIGHT) * ((CryptoNote::parameters::BLOCK_REWARD_HALVING / HALVING_AMOUNT) + (CryptoNote::parameters::VERMINTING_BLOCK_REWARD_HALVING / HALVING_AMOUNT)))
                 ));
             // Staking Enable
-            } else if(height > (CryptoNote::parameters::STAKING_ENABLE_HEIGHT - 1)) {
+            } else if(height > (CryptoNote::parameters::VERMINTING_ENABLE_HEIGHT - 1)) {
                 writer.String(std::to_string(
-                    ((CryptoNote::parameters::BLOCK_REWARD * CryptoNote::parameters::STAKING_ENABLE_HEIGHT) +
+                    ((CryptoNote::parameters::BLOCK_REWARD * CryptoNote::parameters::VERMINTING_ENABLE_HEIGHT) +
                     CryptoNote::parameters::GENESIS_BLOCK_REWARD) +
-                    ((height - CryptoNote::parameters::STAKING_ENABLE_HEIGHT) * (CryptoNote::parameters::BLOCK_REWARD_ENABLE + CryptoNote::parameters::STAKING_BLOCK_REWARD_ENABLE))
+                    ((height - CryptoNote::parameters::VERMINTING_ENABLE_HEIGHT) * (CryptoNote::parameters::BLOCK_REWARD_ENABLE + CryptoNote::parameters::VERMINTING_BLOCK_REWARD_ENABLE))
                 ));
             // No staking
-            } else if(height < (CryptoNote::parameters::STAKING_ENABLE_HEIGHT - 1)) {
+            } else if(height < (CryptoNote::parameters::VERMINTING_ENABLE_HEIGHT - 1)) {
                 writer.String(std::to_string(
                     (CryptoNote::parameters::BLOCK_REWARD * height) +
                     CryptoNote::parameters::GENESIS_BLOCK_REWARD
