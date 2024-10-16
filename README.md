@@ -21,7 +21,7 @@ By leveraging this unique combination of security, anonymity, and social interac
 <a href="https://discord.gg/WvV5k4hMny">
   <img src="https://img.icons8.com/fluency/48/discord-logo.png" alt="Discord" style="width:16px;height:16px;border:none;position:relative;top:2px;"/> Discord
 </a> |
-<a href="https://twitter.com/VerumCore">
+<a href="https://twitter.com/VerumXCoin">
   <img src="https://img.icons8.com/fluency/48/twitter.png" alt="Twitter" style="width:16px;height:16px;border:none;position:relative;top:2px;"/> Twitter
 </a>
 </div><br>
